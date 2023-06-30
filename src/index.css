@@ -118,13 +118,7 @@ span.left {
 
 span.right {
   text-align: right;
-  font-size: 2.5vw;
-}
-
-.prof li p {
-  color: #4676D7;
-  font-size: 1.2vw;
-  text-align: left;
+  font-size: 2vw;
 }
 
 .prof h2 {
@@ -133,10 +127,10 @@ span.right {
   text-align: center;
 }
 
-code {
+.prof pre {
   text-align: left;
-  font-size: 14pt;
 }
+
 
 .login{
   align-content: center;
@@ -164,9 +158,27 @@ code {
   font-weight:bold;
 }
 
+.login{
+  width: 30%;
+  margin: auto;
+}
+
+.login ul {
+  padding: 0;
+  font-size: 1.5vw;
+}
+
 .login li{
-  padding: 20px;
   list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw;
+  list-style-type: none;
+}
+
+.login input{
+  align-content: center;
+  align-self: center;
 }
 
 .button:hover {

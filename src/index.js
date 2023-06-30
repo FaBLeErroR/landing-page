@@ -36,7 +36,7 @@ function Foot(props) {
             <img src={props.logo} />
             <p></p>
             <div>
-                <p>Свяжитесь со мной:</p>
+                <p>Свяжитесь с нами:</p>
                 <p>ФИО: {props.name}</p>
                 <p>Номер телефона: {props.phone}</p>
             </div>
@@ -82,7 +82,8 @@ function Button() {
                 {!isPressed ? <CalcForm /> : null}
                 <br/>
                 <input className="button" type="button"
-                       value={isPressed ? "Начните писать код уже сегодня" : "Закрыть"} onClick={press} />
+                       value={isPressed ? "Начните писать код уже сегодня" :
+                           "Закрыть"} onClick={press} />
             </div>
         </>
     )
@@ -115,9 +116,9 @@ function Feature(props) {
         <li onClick={press}>
             <span className="left">{props.head}</span>
             <span className="right">{isOpen ? "<" : ">"}</span>
-            {isOpen &&
-                <code> {props.code} </code>
-            }
+                {isOpen &&
+                    <pre>{props.code}</pre>
+                }
         </li>
     )
 }
@@ -133,30 +134,27 @@ function Login() {
         setButton(true);
     };
     React.useEffect(() => {
-        if(isPressed) {
-            setLogin(login);
-            setName(name);
-            setSurname(surname);
-        }
-    }, [])
+        setLogin(login);
+        setName(name);
+        setSurname(surname);
+    })
     const changeLogin = (event) => setLogin(event.target.value)
     const changeName = (event) => setName(event.target.value)
     const changeSurname = (event) => setSurname(event.target.value)
-
     return(
         <>
             <div className="login">
                 <h3>Подайте заявку на обучение!</h3>
-                <ul>
-                    <li><input className="text" placeholder="Логин" onChange={changeLogin} value={login} /></li>
-                    <li><input className="text" placeholder="Имя" onChange={changeName} value={name} /></li>
-                    <li><input className="text" placeholder="Фамилия" onChange={changeSurname} value={surname} /></li>
-                    <li><input className="button" type="button" onClick={press} value="Подать заявку" /></li>
-                </ul>
-                {isPressed &&
+                {isPressed ?
                     <p>Уважаемый {name != "" ? name : "Name"} {surname}, в ближайшее время Вам на
-                        почту придет приглашение на курс. Надеемся вы не
-                        забыли ввести пароль.</p>
+                        почту придет приглашение на курс. <br/>Надеемся вы не
+                        забыли ввести пароль.</p> :
+                    <ul>
+                        <li><input className="text" placeholder="Логин" onChange={changeLogin} value={login} /></li>
+                        <li><input className="text" placeholder="Имя" onChange={changeName} value={name} /></li>
+                        <li><input className="text" placeholder="Фамилия" onChange={changeSurname} value={surname} /></li>
+                        <li><input className="button" type="button" onClick={press} value="Подать заявку" /></li>
+                    </ul>
                 }
             </div>
         </>
